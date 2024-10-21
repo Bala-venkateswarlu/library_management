@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <style>
+        body{
+            
+            background-image: linear-gradient(20deg, #08AEEA 0%, #2AF598 100%);
+            height: 100vh;
+            
+        }
+        h1{
+            text-align: center;
+        }
+        .container{
+            background-color: #ea31e080;
+            margin:200px 500px;
+            border-radius: 10px;
+            border: 2px solid #2AF598;
+          
+            
+        }
+        label {
+            display: inline-block;
+            width: 100px;
+            padding: 10px;
+            font-size: 17px;
+            font-weight: 400;
+        }
+        input{
+            height: 25px;
+            width: 200px;
+            border: none;
+            border-radius: 5px;
+        }
+        
+        
+        .sub input:hover{
+            background-color: chartreuse;
+        }
+        .sub input{
+          
+            margin-left: 150px;
+            width: 50px;
+            margin-top: 15px;
+            font-size: 15px;
+            font-weight: 300;
+            cursor: pointer;
+        }
+        p{
+            margin-left: 10px;
+        }
+        a{
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <div class="box">
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <label for="email">Email:</label>
+                <input type="email" name="email" required><br>
+
+                <label for="password">Password:</label>
+                <input type="password" name="password" required><br>
+                <div class="sub">
+               <input type="submit" value="Login" >
+            </div>
+            </form>
+            <p>Not registered? <a href="{% url 'register' %}">Register here</a>.</p>
+        </div>
+    </div>
+</body>
+</html>

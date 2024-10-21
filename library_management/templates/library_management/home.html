@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library_Management</title>
+    
+    
+      <link rel="stylesheet" href="{% static 'library_management/css/style1.css' %}">
+      <link rel="stylesheet" href="{% static 'library_management/css/readers.css' %}">
+      <link rel="stylesheet" href="{% static 'library_management/css/books.css' %}">
+      
+
+</head>
+<body>
+  
+    <div class="ball">
+    <!--<img src="{% static 'library_management/css/images/logo4.png' %}" alt="Library Logo" >-->
+      <div class="text">
+      <h3 >StUdY_HuB </h3>
+    </div>
+    </div>
+
+
+    <div class="nav">
+        
+            <ul>
+                <li><a href="{% url 'home' %}">HOME</a></li>
+                <li><a href="{% url 'pre_readers' %}">READERS</a></li>
+                <li><a href="{% url 'books' %}">BOOKS</a></li>
+                <li><a href="{% url 'pre_bag' %}">MY BAG</a></li>
+                <li><a href="{% url 'pre_returns' %}">RETURNS</a></li>
+              </ul>
+        
+        {% block main_content %}
+    </div>
+    <div class="logo">
+      <img src="{% static 'library_management/css/images/logo4.png' %}" alt="Library Logo">
+
+      <h1>Hello Readers!</h1>
+      <p>welcome to Study hub. We have a large collection of books to cater the reading needs of all kinds of readers.</p>
+
+      <input type="submit" value="Browse our collections>>">
+    </div>
+    
+
+    
+    <div class="row">
+
+      <div class="column">
+        <h2> Why reading is important</h2>
+        <p>Reading can improve your vocabulary, memory, focus, and imagination. It can also help you develop critical thinking skills and learn to see things from different perspectives.</p>
+      </div>
+
+      <div class="column">
+        <h2>Key Benefits</h2>
+        <ul>
+          <li>Stress Reduction.</li>
+          <li>Vocabulary Expansion.</li>
+          <li>Memory Improvement.</li>
+        </ul>
+      </div>
+
+      <div class="column">
+        <h2>Thought of the day</h2>
+        <p>"The only thing that you absolutely have to know, is the location of the library."
+
+          --Albert Einstein 
+          </p>
+      </div>
+
+    </div>
+    <hr>
+    <footer>@StUdY_HuB 2024</footer>
+
+
+    {% endblock %}
+</body>
+
+</html>

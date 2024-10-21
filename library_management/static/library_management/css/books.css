@@ -1,0 +1,75 @@
+
+h4{
+    margin-left: 600px;
+    font-size: 25px;
+}
+
+.bookssearch input{
+    padding: 7px ;
+}
+#search{
+    margin-left: 550px;
+    width: 300px;
+    border-radius: 10px;
+    
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 15px;
+}
+#search1{
+    border: 0px;
+    border-radius: 10%;
+    font-weight: 300;
+    font-size: 15px;
+    cursor: pointer;
+}
+.color-button:hover {
+    background-color: #007BFF  /* New color after click */
+}
+.addbook1{
+    margin-left: 680px;
+    border: none;
+    text-decoration: none;
+    border-radius: 10%;
+    cursor: pointer;
+    background-color: blue;
+    margin-top: 10px;
+    padding: 7px;
+    color: white;
+    font-weight: 400;
+}
+
+
+.content{
+    border-collapse: collapse;
+    margin: 25px 0px;
+    font-size: 1.3em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+.content thead tr{
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content th,
+.content td{
+    padding: 12px 15px;
+}
+
+.content tbody tr{
+    border-bottom: 1px solid #dddddd;
+}
+
+.content tbody tr:nth-of-type(even){
+    background-color: #f3f3f3;
+
+}
+
+.content tbody tr:last-of-type{
+    border-bottom: 2px solid #009879;
+}

@@ -1,0 +1,112 @@
+
+.nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+.nav li {
+  float: left;
+  height: 50px;
+}
+.nav  li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.nav li a:hover {
+  background-color: #111;
+}
+.nav  li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.nav li a:hover {
+  background-color: #111;
+}s
+
+.ball img{
+  padding-top: 3px;
+  height: 44px;
+  float: left;
+  
+  margin-left: 630px;
+}
+
+.text h3 {
+  background-color: blueviolet;
+   color:white; 
+   text-align: center;
+   padding:8px ;
+   /*padding-right: 700px;
+     font-size:30px;*/
+   justify-content: center;  
+   margin:0px;
+
+
+
+   
+}
+
+
+
+body{
+
+    margin: 0px;
+    padding: opx;
+}
+.logo img{
+    float: left;
+    padding-left: 100px;
+    padding-right: 50px;
+    
+    width: 200px;
+    
+}
+.logo h1{
+    padding-top: 20px;
+
+}
+.logo p{
+    font-weight: 500;
+}
+.logo{
+    background-color:grey;
+    padding-bottom: 30px;
+}
+.logo input{
+    background-color: blue;
+    padding: 8px;
+    margin: 0px;
+    bottom: opx;
+    border: 3px;
+    font-weight: 500;
+    font-size: 13px;
+    color: #fff;
+    cursor: pointer;
+
+}
+
+.key{
+    display: inline-flex;
+    justify-content: space-between;
+}
+.column {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    height: 200px; /* Should be removed. Only for demonstration */
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }

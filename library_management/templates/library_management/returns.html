@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+
+ {% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return Books</title>
+
+    <style>
+        .table-content{
+            border-collapse: collapse;
+            margin: 25px 0px;
+            font-size: 1.3em;
+            min-width: 400px;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+        }
+        .table-content thead tr{
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .table-content th,
+        .table-content td{
+            padding: 12px 15px;
+        }
+
+        .table-content tbody tr{
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .table-content tbody tr:nth-of-type(even){
+            background-color: #f3f3f3;
+
+        }
+
+        .table-content tbody tr:last-of-type{
+            border-bottom: 2px solid #009879;
+        }
+
+        button{
+            background-color: brown;
+            border: 0px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #ffffff;
+            font-weight: 400px;
+        }
+        button:hover{
+            background-color: blueviolet;
+        }
+        h1{
+            text-align: center;
+            background:linear-gradient(45deg,  blueviolet,red);
+            color: #ffffff;
+        }
+        a{
+            background: color #3dce4b; 
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            font-weight: 300;
+            border-radius: 5px;
+            border: 2px solid rgb(19, 112, 205);
+        }
+        .dec{
+            background-color: #712b43;
+        }
+    </style>
+</head>
+<body>
+    {% block main_content %}
+
+
+<h1>Return Borrowed Books</h1>
+
+<form method="POST" action="{% url 'returns' %}">
+    {% csrf_token %}
+    <table  class="table-content">
+        <thead>
+            <tr>
+                <th>Reader Name</th>
+                <th>Reference ID</th>
+                <th>Book Name</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reader in readers %}
+            <tr>
+                <td>{{ reader.reader_name }}</td>
+                <td>{{ reader.reference_id }}</td>
+                <td>{{ reader.book_name }}</td>
+                <td>{{ reader.start_date }}</td>
+                <td>{{ reader.end_date }}</td>
+                <td>
+                    <button type="submit" name="reader_id" value="{{ reader.id }}">Return</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</form>
+
+<a href="{% url 'home' %}" class="dec"> Back to home page</a>
+
+{% endblock %}
+</body>
+</html>

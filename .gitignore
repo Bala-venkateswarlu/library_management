@@ -1,0 +1,14 @@
+.django_env
+django_env/
+
+.djangoproject
+djangoproject/
+
+.employee_register
+employee_register/
+
+.registration_form
+registration_form/
+
+.base
+base/

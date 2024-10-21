@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% extends 'library_management/home.html' %}
+ {% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REaders</title>
+
+    
+</head>
+<body>
+
+    {% block main_content %}
+    <h4>Search for Books</h4>
+    <div class="bookssearch">
+        <form method="GET" action="{% url 'books' %}">
+            <input type="search" placeholder="search by book name" id="search"  name="query" value="{{ search_query }}">
+            <input type="submit" value="search" id="search1" class="color-button">
+        </form>
+    </div>
+   <!--<div class="addbook">
+        <input type="button" value="Add a Book" class="addbook1">
+    </div>-->
+    <div class="addbook">
+        <a href="{% url 'add_book' %}">
+            <input type="button" value="Add a Book" class="addbook1">
+        </a>
+    </div>
+   
+        <table border="1" class="content">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Book_name</th>
+                    <th>Author</th>
+                    <th>published</th>
+                </tr>
+                <tbody>
+                    {% for book in books %}
+                    <tr>
+                        <td>{{book.id}}</td>
+                        <td>{{book.book_name}}</td>
+                        <td>{{book.Author}}</td>
+                        <td>{{book.published}}</td>
+                    </tr>
+                    {%endfor%}
+                
+            </thead>
+        </tbody>
+        </table>    
+       
+    {% endblock %}
+    
+</body>
+</html>

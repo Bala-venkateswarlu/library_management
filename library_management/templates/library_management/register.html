@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+    <style>
+       body{
+        background: linear-gradient(#45da12 #763a12);
+       }
+        h1{
+            text-align: center;
+        }
+        .box{
+            background-color:cyan;
+            margin: 10% 40%  0 25%;
+            padding: 10px;
+            border-radius: 7px;
+            border: 1px solid #12567a;
+        }
+        label {
+            display: inline-block;
+            width: 100px;
+          
+            margin-right: 10px;
+            padding-top: 20px;
+            font-size: 17px;
+            font-weight: 400;
+            
+        }
+         input{
+    
+            height: 25px;
+            width: 250px;
+            border: none;
+            border-radius: 5px;
+        }
+        .sub input{
+            margin: 8px 0px;
+            margin-top: 10px;
+            width: 100px;
+            margin-left: 130px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 200;
+            background-color: #4fa9f1;
+            color: #ffffff;
+        }
+        .sub input:hover{
+            background-color: slategrey;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div class="box1">
+        <div class="box">
+        <h1>Register</h1>
+            <div class="container">
+                <form method="POST">
+                    {% csrf_token %}
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" required><br>
+
+                    <label for="contact">Contact:</label>
+                    <input type="text" name="contact" required><br>
+
+                    <label for="reference_id">Reference ID:</label>
+                    <input type="text" name="reference_id" required><br>
+
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" required><br>
+
+                    <label for="address">Address:</label>
+                    <input type="text" name="address" required><br>
+
+                    <label for="password">Password:</label>
+                    <input type="text" name="password" required><br>
+                    <div class="sub">
+                    <input type="submit" value="Register" >
+                    </div>
+                </form>
+            
+            <p>Already registered? <a href="{% url 'pre_login' %}">Login here</a>.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

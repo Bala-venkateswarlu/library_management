@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+
+
+
+ {% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take a Book</title>
+    <style>
+        form {
+            display: inline-flex;
+            flex-direction: column;
+            width: 300px;
+            font-size: 20px;
+            font-weight: 300px;
+           
+        }
+        label {
+            margin-top: 10px;
+        }
+        input[type="text"], input[type="date"] {
+            margin-bottom: 10px;
+            border: 2px solid #224562;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .bala{
+            margin-top: 10px;
+        }
+        #book_search {
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 100%;
+            box-sizing: border-box;
+          
+        }
+        h1{
+            text-align: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: darkmagenta;
+            color: white;
+            margin: 0px;
+            padding:10px 0px;
+        }
+        h2{
+            text-align: center;
+        }
+
+
+        .btn{
+            cursor: pointer;
+            background-color: cornflowerblue;
+            color: white;
+            font-size: 17px;
+            font-weight: 300px;
+            border: none;
+            border-radius: 10px;
+            height: 30px;
+        }
+
+
+        .bala{
+            border-collapse: collapse;
+            margin: 25px 0px;
+            font-size: 1.3em;
+            min-width: 400px;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+        }
+        .bala thead tr{
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .bala th,
+        .bala td{
+            padding: 12px 15px;
+        }
+
+        .bala tbody tr{
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .bala tbody tr:nth-of-type(even){
+            background-color: #f3f3f3;
+
+        }
+
+        .bala tbody tr:last-of-type{
+            border-bottom: 2px solid #009879;
+        }
+
+
+        a{
+            background-color: chartreuse;
+            margin-top: 0px;
+        }
+        
+    </style>
+
+    <!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include Select2 CSS and JS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+
+</head>
+<body>
+    {% block main_content %}
+
+
+<h1>Borrow a Book</h1>
+
+<form method="POST" action="{% url 'bag' %}">
+    {% csrf_token %}
+    <label for="reader_name">Reader Name:</label>
+    <input type="text" id="reader_name" name="reader_name" required>
+
+    <label for="reference_id">Email ID:</label>
+    <input type="text" id="reference_id" name="email" required>
+
+
+
+    
+
+    <label for="book_name">Select Book:</label>
+<select id="book_id" name="book_id" class="searchable-select" required>
+    {% for book in books %}
+        <option value="{{ book.id }}">{{ book.book_name }}</option>
+    {% endfor %}
+</select>
+
+    <label for="start_date">Start Date:</label>
+    <input type="date" id="start_date" name="start_date" required>
+
+    <label for="end_date">End Date:</label>
+    <input type="date" id="end_date" name="end_date" required>
+
+    <input type="submit" value="Take Book" class="btn">
+</form>
+
+<h2>Available Books</h2>
+
+<table border="1"  class="bala">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Book_name</th>
+            <th>Author</th>
+            <th>published</th>
+        </tr>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{book.id}}</td>
+                <td>{{book.book_name}}</td>
+                <td>{{book.Author}}</td>
+                <td>{{book.published}}</td>
+            </tr>
+            {%endfor%}
+        
+    </thead>
+</tbody>
+</table>    
+
+<br>
+<a href="{% url 'books' %}">Back to Books List</a>
+
+
+<script>
+    $(document).ready(function() {
+        // Initialize Select2 on the select element and searching functionality
+        $('.searchable-select').select2({
+            placeholder: 'Search for a book',
+            allowClear: true
+        });
+    });
+</script>
+
+{% endblock %} 
+</body>
+</html>

@@ -1,0 +1,45 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add_Books</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+        label {
+            margin-top: 10px;
+        }
+        input[type="text"] {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Add a New Book</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label for="book_name">Book Name:</label>
+        <input type="text" id="book_name" name="book_name" required>
+
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required>
+
+        <label for="published">Published:</label>
+        <input type="text" id="published" name="published" required>
+
+        <input type="submit" value="Add Book">
+    </form>
+
+    <br>
+    <a href="{% url 'books' %}">Back to Books List</a>
+</body>
+</body>
+</html>
